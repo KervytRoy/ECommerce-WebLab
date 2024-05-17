@@ -1,0 +1,95 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define custom palettes using the provided colors
+$ECommerce-WebLab-primary: mat.define-palette(( 50: #e2e8ec, 100: #b6c5d0, 200: #86a0b1, 300: #557a91, 400: #2e607a, 500: #ea774d, // Primary color
+600: #496684, 700: #3d5876, 800: #314a68, 900: #20334e, A100: #b8c8d7, A200: #859eb6, A400: #4c6980, A700: #304a5d, contrast: ( 50: rgba(0, 0, 0, 0.87), 100: rgba(0, 0, 0, 0.87), 200: rgba(0, 0, 0, 0.87), 300: white, 400: white, 500: white, 600: white, 700: white, 800: white, 900: white, A100: rgba(0, 0, 0, 0.87), A200: rgba(0, 0, 0, 0.87), A400: white, A700: white, ) ));
+
+$ECommerce-WebLab-accent: mat.define-palette(( 50: #fbe8e0, 100: #f6c5b3, 200: #f09e80, 300: #ea774d, 400: #e25628, 500: #c36b32, // Secondary color
+600: #b7622e, 700: #a25728, 800: #8c4d22, 900: #683a19, A100: #fdd7c8, A200: #fcae95, A400: #fb855f, A700: #fb6c46, contrast: ( 50: rgba(0, 0, 0, 0.87), 100: rgba(0, 0, 0, 0.87), 200: rgba(0, 0, 0, 0.87), 300: white, 400: white, 500: white, 600: white, 700: white, 800: white, 900: white, A100: rgba(0, 0, 0, 0.87), A200: rgba(0, 0, 0, 0.87), A400: white, A700: white, ) ));
+
+// The warn palette is optional (defaults to red).
+$ECommerce-WebLab-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ECommerce-WebLab-theme: mat.define-light-theme(( color: ( primary: $ECommerce-WebLab-primary, accent: $ECommerce-WebLab-accent, warn: $ECommerce-WebLab-warn, ), typography: mat.define-typography-config(), density: 0 ));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($ECommerce-WebLab-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  background: #9C9C9C;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3d72b4, #9C9C9C);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3d72b4, #9C9C9C);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Variables do tonos grises */
+
+:root {
+  --white: #ffffff;
+  --white-transparent: #ffffff31;
+  --transparent: #ffffff00;
+  --grey-1: #E8E8E8;
+  --grey-2: #BEBEBE;
+  --grey-3: #9C9C9C;
+  --grey-4: #7A7A7A;
+  --grey-5: #525252;
+}
+
+/* Variables do tonos azules */
+
+:root {
+  --blue-1: #4F94E8;
+  --blue-2: #4079BE;
+  --blue-3: #3D72B4;
+  --blue-4: #35639C;
+  --blue-5: #294D7A;
+}
+
+
+a {
+  color: var(--grey-4);
+}
+
+.color-b4 {
+  color: var(--blue-4) !important;
+}
+
+.color-g5 {
+  color: var(--grey-5) !important;
+}
+
+.color-w {
+  color: var(--white) !important;
+}
+
+.background-w-t {
+  background: var(--white-transparent) !important;
+}
+
+.background-t {
+  background: var(--transparent) !important;
+}

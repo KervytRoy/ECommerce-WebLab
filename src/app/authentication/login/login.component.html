@@ -1,0 +1,26 @@
+<div class="center">
+  <mat-card class="login-card">
+    <form>
+      <mat-form-field class="full-width-input">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [formControl]="emailFormControl" required>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Por favor ingresa un email válido
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          El email es requerido
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl" required>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          La contraseña es requerida
+        </mat-error>
+      </mat-form-field>
+
+      <button (click)="login()" mat-raised-button color="accent">Iniciar sesión</button>
+    </form>
+  </mat-card>
+
+</div>
