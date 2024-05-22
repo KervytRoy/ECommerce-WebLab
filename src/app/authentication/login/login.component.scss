@@ -1,5 +1,5 @@
 @import '../../../styles.scss';
-$primary-color: map-get($ECommerce-WebLab-primary, 500);
+$primary-color-transparent: map-get($ECommerce-WebLab-primary, T100);
 
 .center {
   position: absolute;
@@ -14,10 +14,11 @@ $primary-color: map-get($ECommerce-WebLab-primary, 500);
   padding: 32px;
   border-radius: 30px;
   // Aquí se aplica el color de fondo de la tarjeta
-  background-color: $primary-color;
+  background-color: $primary-color-transparent;
 }
 
 .full-width-input {
   width: 100%;
   margin-bottom: 16px;
 }
+

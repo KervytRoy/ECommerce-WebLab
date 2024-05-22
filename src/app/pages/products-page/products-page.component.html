@@ -1,0 +1,29 @@
+<div class="container text-center">
+  <div class="row">
+    <div *ngFor="let item of items; index as i" class="col-3 my-3">
+      <div class="card">
+        <img src="{{item.imagePath}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <p class="card-text">{{item.description}}</p>
+          <p class="card-text">{{item.price}}</p>
+          <a href="#" class="btn btn-primary">agregar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="Pagination">
+    <div class="flex justify-center">
+      <mat-paginator 
+      [length]="100" 
+      [pageSize]="5" 
+      [pageSizeOptions]="[5, 10, 25, 100]" 
+      aria-label="Select page"
+      (page)="changePage($event)" 
+      > 
+      </mat-paginator>
+    </div>
+  </div>
+
+</div>

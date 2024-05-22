@@ -1,0 +1,6 @@
+@import '../../../styles.scss';
+$secondary-color: map-get($ECommerce-WebLab-primary, T100);
+
+.nav ul li{
+  color: var(--white) !important;
+}
