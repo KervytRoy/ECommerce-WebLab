@@ -38,9 +38,11 @@ export class LoginComponent {
 
       this.tokensService.tokensGetToken(params).subscribe(
         (response: TokenResponse) => {
-          if (response.token && response.refreshToken) {
+          if (response.token && response.refreshToken && response.refreshTokenExpiryTime) {
             localStorage.setItem('token', response.token);
             localStorage.setItem('refreshToken', response.refreshToken);
+            localStorage.setItem('refreshTokenExpiryTime', response.refreshTokenExpiryTime);
+
             this.personalService.personalGetPermissions().subscribe(
               (response: Array<string>) => {
                 console.log(response);
