@@ -2,7 +2,7 @@
   <div class="row">
     <div *ngFor="let item of items; index as i" class="col-3 my-3">
       <div class="card">
-        <img src="{{item.imagePath}}" class="card-img-top" alt="...">
+        <img src="{{'http://localhost:5000/' + item.imagePath}}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{item.name}}</h5>
           <p class="card-text">{{item.description}}</p>
@@ -12,7 +12,6 @@
       </div>
     </div>
   </div>
-
   <div class="Pagination">
     <div class="flex justify-center">
       <mat-paginator 
@@ -20,10 +19,8 @@
       [pageSize]="5" 
       [pageSizeOptions]="[5, 10, 25, 100]" 
       aria-label="Select page"
-      (page)="changePage($event)" 
-      > 
+      (page)="changePage($event)"> 
       </mat-paginator>
     </div>
   </div>
-
 </div>
