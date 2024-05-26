@@ -1,0 +1,21 @@
+<div class="center">
+  <mat-card class="login-card">
+    <form>
+      <div class="mat-grid">
+        <div class="mat-grid-tile" *ngFor="let field of formFields; let i = index">
+          <mat-form-field class="full-width-input" appearance="outline">
+            <mat-label>{{ field.label }}</mat-label>
+            <input matInput [type]="field.type" [formControl]="field.control" required>
+            <mat-error *ngIf="field.control.hasError('required')">
+              {{ field.errorRequired }}
+            </mat-error>
+            <mat-error *ngIf="field.control.hasError('email') && !field.control.hasError('required')">
+              {{ field.errorEmail }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <button (click)="register()" mat-raised-button color="primary">Registrarse</button>
+    </form>
+  </mat-card>
+</div>

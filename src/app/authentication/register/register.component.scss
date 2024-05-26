@@ -1,0 +1,34 @@
+@import '../../../styles.scss';
+$primary-color-transparent: map-get($ECommerce-WebLab-primary, T100);
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-card {
+  max-width: 600px; // Ajusta este valor según lo necesites
+  width: 100%;
+  text-align: center;
+  padding: 32px;
+  border-radius: 30px;
+  background-color: $primary-color-transparent;
+}
+
+.full-width-input {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.mat-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mat-grid-tile {
+  flex: 1 1 calc(50% - 16px);
+  min-width: calc(50% - 16px);
+}

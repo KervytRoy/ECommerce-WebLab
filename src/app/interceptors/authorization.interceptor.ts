@@ -1,5 +1,5 @@
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { TokensService } from '../api/services';
 import { TokensRefresh$Params } from '../api/fn/tokens/tokens-refresh';
@@ -26,11 +26,19 @@ export class AuthorizationInterceptor implements HttpInterceptor {
               token: token
             }
           };
-          this.tokensService.tokensRefresh(params).subscribe((response: TokenResponse) => {
-            if (response.token && response.refreshTokenExpiryTime) {
+          this.tokensService.tokensRefresh(params).pipe(
+            catchError(error => {
+              console.error('Ocurrió un error:', error);
+              return throwError(error);
+            })
+          ).subscribe((response: TokenResponse) => {
+            if (response.token && response.refreshTokenExpiryTime && response.refreshToken) {
               localStorage.setItem('token', response.token);
+              /*localStorage.setItem('refreshToken', response.refreshTokenExpiryTime);*/
               localStorage.setItem('refreshTokenExpiryTime', response.refreshTokenExpiryTime);
             }
+          }, error => {
+            console.error('Error en la suscripción:', error);
           });
         }
       }

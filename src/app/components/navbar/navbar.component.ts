@@ -1,32 +1,22 @@
-import { SearchProductsRequest } from './../../api/models/search-products-request';
-import { Component } from '@angular/core';
-import { ProductsService } from '../../api/services';
-import { ProductsSearch$Params } from '../../api/fn/products/products-search';
-import { PaginationResponseOfProductDto } from '../../api/models';
-
-
-
+import { Component, OnInit } from '@angular/core';
+import { AuthenticationStateService } from '../../services/authentication-state.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent {
-   constructor(private productService: ProductsService){
-    let searchProductsRequest: SearchProductsRequest = {
-       pageSize: 10,
-       pageNumber: 1,
-       brandId: 'E0D19668-4449-4F20-790F-08DC6FB73E6B'
-    };
-    let params: ProductsSearch$Params = {
-      body: searchProductsRequest
-    };
-    this.productService.productsSearch(params).subscribe(
-      (response: PaginationResponseOfProductDto) => {
-        console.log(response);
-      }
-    );
-   }
-   
+export class NavbarComponent implements OnInit {
+  isLoggedIn: boolean = false;
+
+  constructor(private authService: AuthenticationStateService) { }
+
+  ngOnInit(): void {
+    this.isLoggedIn = this.authService.isLoggedIn();
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.isLoggedIn = false;
+  }
 }

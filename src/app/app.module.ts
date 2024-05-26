@@ -14,11 +14,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatGridListModule } from '@angular/material/grid-list'; 
 import { AuthorizationInterceptor } from './interceptors/authorization.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListCardWithPaginationComponent } from './components/list-card-with-pagination/list-card-with-pagination.component';
 import { ProductsPageComponent } from './pages/products-page/products-page.component';
+import { RegisterComponent } from './authentication/register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ProductsPageComponent } from './pages/products-page/products-page.compo
     LoginComponent,
     NavbarComponent,
     ListCardWithPaginationComponent,
-    ProductsPageComponent
+    ProductsPageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { ProductsPageComponent } from './pages/products-page/products-page.compo
     MatSnackBarModule,
     MatSlideToggleModule,
     MatIconModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatGridListModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true }, provideAnimationsAsync()

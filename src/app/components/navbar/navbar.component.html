@@ -1,41 +1,39 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary background-w-t ">
+<nav class="navbar navbar-expand-lg bg-body-tertiary background-w-t">
   <div class="container-fluid d-flex justify-content-between">
     <a class="navbar-brand mx-4" href="#">
       <img src="../../../assets/weblab.png" alt="Logo de Weblab" class="rounded-circle" style="width: 50px; height: 50px;">
-
     </a>
     <ul class="navbar-nav d-flex justify-content-center mb-2 mb-lg-0">
       <li class="nav-item mx-2">
-        <button mat-button >Inicio</button>
+        <button mat-button>Inicio</button>
       </li>
       <li class="nav-item mx-2">
-        <button mat-button >Productos</button>
+        <button mat-button>Productos</button>
       </li>
       <li class="nav-item mx-2">
-        <button mat-button >Tiendas</button>
+        <button mat-button>Tiendas</button>
       </li>
       <li class="nav-item d-flex align-items-center mx-2">
         <mat-icon>
           <a color="primary" class="" href="#">
-            <span class="material-symbols-outlined ">
-              shopping_cart
-            </span>
+            <span class="material-symbols-outlined">shopping_cart</span>
           </a>
         </mat-icon>
       </li>
     </ul>
-    <ul class="navbar-nav  d-flex mb-2  mx-4 mb-lg-0">
-      <li class="nav-item">
-        <button mat-button >Register</button>
+    <ul class="navbar-nav d-flex mb-2 mx-4 mb-lg-0">
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <button mat-button>Registrarse</button>
       </li>
-      <li class="nav-item d-flex align-items-center mx-2">
+      <li class="nav-item d-flex align-items-center mx-2" *ngIf="!isLoggedIn">
         <mat-icon>
           <a class="" href="#">
-            <span class="material-symbols-outlined">
-              login
-            </span>
+            <span class="material-symbols-outlined">login</span>
           </a>
         </mat-icon>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <button mat-button (click)="logout()">Logout</button>
       </li>
     </ul>
   </div>
