@@ -19,6 +19,7 @@ import { AuthorizationInterceptor } from './interceptors/authorization.intercept
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListCardWithPaginationComponent } from './components/list-card-with-pagination/list-card-with-pagination.component';
 import { ProductsPageComponent } from './pages/products-page/products-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductsPageComponent } from './pages/products-page/products-page.compo
     LoginComponent,
     NavbarComponent,
     ListCardWithPaginationComponent,
-    ProductsPageComponent
+    ProductsPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
